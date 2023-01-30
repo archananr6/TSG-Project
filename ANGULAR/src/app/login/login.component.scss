@@ -1,0 +1,55 @@
+@import "src/theme/theme-variables";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+.login-container {
+  background-image: url("https://www.csc.gov.sg/images/default-source/ethos-images/ethos-digital-edition-(aug-2021)/role-of-govt-in-ecommerce_banner-teaser.jpg?sfvrsn=691dd9fc_2");
+  background-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.login-box {
+  width: 45vh;
+  padding: 3%;
+  border-radius: 12vh;
+  border: none;
+  background-color: #ffffd73b;
+}
+
+.ng-invalid.ng-touched:not(form) {
+  border-left: 4px solid theme-color("danger");
+}
+
+@include media-breakpoint-down(xs) {
+  .container {
+    // width: 100%;
+    width: 45vh;
+    padding: 3%;
+    border-radius: 12vh;
+    border: none;
+    background-color: #ffffd73b;
+  }
+}
+
+h1 {
+  font-family: cursive;
+}
+.submit {
+  padding: 1vh 18vh;
+  border-radius: 12vh;
+  background-color: #ffc1076b;
+}
+
+// input{
+//   width: 38vh;
+//   padding: 3%;
+//   border-radius: 12vh;
+//   border: none;
+//   background-color: #ffffd73b;;
+// }
+// .root{
+//   background-image: url("https://www.csc.gov.sg/images/default-source/ethos-images/ethos-digital-edition-(aug-2021)/role-of-govt-in-ecommerce_banner-teaser.jpg?sfvrsn=691dd9fc_2");
+//   background-position:center;
+//   background-size:100%;
+//   background-repeat: no-repeat;
+// }
