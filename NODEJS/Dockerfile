@@ -1,24 +1,23 @@
-# Common build stage
-FROM node:14.14.0-alpine3.12 as common-build-stage
-
-COPY . ./app
-
-WORKDIR /app
-
-RUN npm install
-
+FROM node:12-slim as base
+ENV NODE_ENV=production
 EXPOSE 3000
+RUN npm i npm@latest -g
+RUN mkdir /app && chown -R node:node /app
+WORKDIR /app
+USER node
+COPY --chown=node:node package.json package-lock*.json ./
+RUN npm install && npm cache clean --force
+ENV PATH /app/node_modules/.bin:$PATH
+# check every 30s to ensure this service returns HTTP 200
+HEALTHCHECK --interval=30s CMD node healthcheck.js
 
-# Development build stage
-FROM common-build-stage as development-build-stage
+FROM base as source
+COPY --chown=node:node . .
 
-ENV NODE_ENV development
+FROM source as dev
+ENV NODE_ENV=development
+RUN npm install --only=development
+CMD ["nodemon", "server.js"]
 
-CMD ["npm", "run", "dev"]
-
-# Production build stage
-FROM common-build-stage as production-build-stage
-
-ENV NODE_ENV production
-
-CMD ["npm", "run", "start"]
+FROM source as prod
+CMD ["node", "server.js"]
