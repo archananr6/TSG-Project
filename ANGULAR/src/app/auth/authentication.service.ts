@@ -1,12 +1,13 @@
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { map, Observable, of } from 'rxjs';
 
 import { Credentials, CredentialsService } from './credentials.service';
 
 export interface LoginContext {
   username: string;
   password: string;
-  remember?: boolean;
+  // remember?: boolean;
 }
 
 /**
@@ -17,33 +18,48 @@ export interface LoginContext {
   providedIn: 'root',
 })
 export class AuthenticationService {
-  submit(value: any) {
-    throw new Error('Method not implemented.');
-  }
-  constructor(private credentialsService: CredentialsService) {}
+  constructor(private credentialsService: CredentialsService,private http:HttpClient) {}
 
   /**
    * Authenticates the user.
    * @param context The login parameters.
    * @return The user credentials.
    */
-  login(context: LoginContext): Observable<Credentials> {
-    // Replace by proper authentication call
-    const data = {
-      username: context.username,
-      token: '123456',
-    };
-    this.credentialsService.setCredentials(data, context.remember);
-    return of(data);
+
+  
+
+   login(requestObj: LoginContext): Observable<any> {
+    return this.http.post('/auth/login', requestObj, { observe: "response" }).pipe(
+      map((res: HttpResponse<any>) => {
+        return res.body;
+      })
+    );
   }
+
+  register(requestObj: LoginContext): Observable<any> {
+    return this.http.post('/auth/register', requestObj, { observe: "response" }).pipe(
+      map((res: HttpResponse<any>) => {
+        return res.body;
+      })
+    );
+  }
+  // login(context: LoginContext): Observable<Credentials> {
+  //   // Replace by proper authentication call
+  //   const data = {
+  //     username: context.username,
+  //     token: '123456',
+  //   };
+  //   this.credentialsService.setCredentials(data, context.remember);
+  //   return of(data);
+  // }
 
   /**
    * Logs out the user and clear credentials.
    * @return True if the user was logged out successfully.
    */
-  logout(): Observable<boolean> {
+   logout(): Observable<boolean> {
     // Customize credentials invalidation here
-    this.credentialsService.setCredentials();
+    this.credentialsService.clearCredentilas();
     return of(true);
   }
 }

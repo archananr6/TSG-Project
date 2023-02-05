@@ -4,7 +4,7 @@
   "description": "Backend APIs for NITTI",
   "main": "./src/server.js",
   "scripts": {
-    "test": "NODE_CONFIG_DIR=./src/config vitest --run --reporter verbose",
+    "test": "vitest --run --reporter verbose",
     "coverage": "vitest run --coverage",
     "start": "nodemon -L ./src/server.js",
     "lint": "./node_modules/.bin/eslint .",
@@ -30,6 +30,7 @@
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.21",
     "moment": "^2.29.3",
+    "mysql": "^2.18.1",
     "nodemailer": "^6.7.5",
     "pg": "^8.7.3",
     "pg-hstore": "^2.3.4",

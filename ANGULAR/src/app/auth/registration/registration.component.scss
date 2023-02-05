@@ -1,3 +1,7 @@
+
+
+
+
 h1 {
   font-family: cursive;
 }
@@ -17,3 +21,7 @@ button {
 button:hover {
   background-color: #ffffd7e0 !important ;
 }
+.ng-invalid.ng-touched:not(form) {
+  border-left: 4px solid theme-color("danger");
+}
+

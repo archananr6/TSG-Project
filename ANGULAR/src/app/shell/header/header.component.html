@@ -1,4 +1,4 @@
-<header>
+<!-- <header>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="https://github.com/ngx-rocket" translate>APP_NAME</a>
@@ -41,4 +41,47 @@
       </div>
     </div>
   </nav>
+</header> -->
+
+
+<header>
+  <div class="container-fluid header">
+    <div class="container">
+      <div class="row">
+        <div class="col-2 title">Ecommerce</div>
+        <div class="col-6 offset-md-1">
+          <div class="row">
+            <div class="col">
+              <span><a href="">Home</a></span>
+            </div>
+            <div class="col">
+              <span><a href="#fashion">Fashion</a></span>
+            </div>
+            <div class="col">
+              <span><a href="#electronics">Electronics</a></span>
+            </div>
+            <div class="col">
+              <span><a href="">Contacts</a></span>
+            </div>
+          </div>
+        </div>
+        <div class="col-2 offset-md-1">
+          <div class="row">
+            <div class="col">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <div class="col"><i class="fa-regular fa-heart"></i></div>
+            <div class="col">
+              <a href="login"><i class="fa-regular fa-user"*ngIf="!isLoggedIn"></i></a>
+              <i class="fa-solid fa-right-from-bracket" *ngIf="isLoggedIn" (ngSubmit)="logout()"></i>
+            </div>
+            <div class="col">
+              <a href="cart"><i class="fa-solid fa-cart-shopping"></i></a>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> 
+  
 </header>

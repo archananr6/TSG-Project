@@ -16,8 +16,7 @@ export class Shell {
     return {
       path: '',
       component: ShellComponent,
-      children: routes,
-      canActivate: [AuthenticationGuard],
+      children: routes
     };
   }
 }

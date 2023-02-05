@@ -17,6 +17,19 @@ const AuthController = {
       }
     };
   }
+,
+
+
+register: async (httpRequest) => {
+  const registerdata = await AuthService.doRegister(httpRequest.body);
+    return {
+      statusCode: 200,
+      body: {
+        data: registerdata
+      }
+    };
+  }
+
 };
 
 module.exports = AuthController;

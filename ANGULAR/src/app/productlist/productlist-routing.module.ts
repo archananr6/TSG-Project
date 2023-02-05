@@ -1,18 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { marker } from '@biesbjerg/ngx-translate-extract-marker';
-
-import { HomeComponent } from './home.component';
+import { ProductlistComponent } from '@app/productlist/productlist.component';
 import { Shell } from '@app/shell/shell.service';
 import { AuthenticationGuard } from '@app/auth';
-import { ProductlistComponent } from '@app/productlist/productlist.component';
 
 const routes: Routes = [
-  Shell.childRoutes([
-    { path: '', redirectTo: '/home', pathMatch: 'full' },
-
-    { path: 'home', component: HomeComponent,canActivate:[AuthenticationGuard],data: { title: marker('Home') } },
-  ]),
+    Shell.childRoutes([
+        { path: 'productlist', component: ProductlistComponent, canActivate:[AuthenticationGuard],data: { title: marker('productlist') } }
+    ]),
 ];
 
 @NgModule({
@@ -20,4 +16,6 @@ const routes: Routes = [
   exports: [RouterModule],
   providers: [],
 })
-export class HomeRoutingModule {}
+export class ProductRoutingModule {
+    
+}

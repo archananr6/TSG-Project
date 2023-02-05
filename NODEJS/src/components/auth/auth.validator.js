@@ -7,20 +7,38 @@ const options = {
     }
   }
 };
-
+// .pattern(/^[6-9]\d{9}$/)
 const validateLogin = (httpRequest) => {
   const schema = Joi.object({
-    phone: Joi.string()
-      .pattern(/^[6-9]\d{9}$/)
+    email: Joi.string()
       .required()
       .messages({
-        'string.pattern.base': 'Provide valid phone number!'
+        'string.pattern.base': 'Provide valid email!'
       }),
-    password: Joi.string().min(8).max(20).alphanum().required()
+    password: Joi.string().min(7).alphanum().required()
   });
   return schema.validate(httpRequest.body, options);
 };
 
+const validateRegistration = (httpRequest) => {
+  const schema = Joi.object({
+
+    name: Joi.string()
+      .required(),
+    email: Joi.string()
+    .required()
+    .pattern(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)
+      .messages({
+        'string.pattern.base': 'Provide valid email!'
+      }),
+    password: Joi.string().min(7).alphanum()
+
+  });
+  return schema.validate(httpRequest.body, options);
+};
+
+
 module.exports = {
-  validateLogin
+  validateLogin,
+  validateRegistration
 };

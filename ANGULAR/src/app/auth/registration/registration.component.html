@@ -1,0 +1,92 @@
+<div class="container-fluid root">
+  <div class="container">
+    <div class="row">
+      <div class="col-4"></div>
+      <div class="col-4">
+        <div class="row my-5 text-center">
+          <h1>SignUp</h1>
+        </div>
+        <div class="row">
+          <div class="row my-5">
+             <form (ngSubmit)="registerUser()" [formGroup] = "registerForm" novalidate>
+
+              <div class="alert alert-danger" [hidden]="!errorObj" translate>
+           {{errorText}}
+              </div>
+                <div class="m-3">
+                  <label class="d-block my-3">
+                    <input
+                    class="form-control"
+                    name="name"
+                    type="text"
+                    id="name"
+                    class="my-2"
+                    placeholder="Your Name"
+                    formControlName="name"
+                    minlength="4"
+                  />
+                  <small
+                    [hidden]="registerForm.controls['name'].valid || registerForm.controls['name'].untouched"
+                    class="text-danger"
+                    translate
+                  >
+                    Name is required
+                  </small>
+                  </label>
+                </div>
+
+                <div class="m-3">
+                <label class="d-block my-3">
+                  <input
+                  type="text"
+                  name="email"
+                  id="email"
+                  class="my-2"
+                  placeholder="E-mail"
+                  formControlName="email"
+                />
+                <small
+                  [hidden]="registerForm.controls['email'].valid || registerForm.controls['email'].untouched"
+                  class="text-danger"
+                  translate
+                >
+                  Email is required
+                </small>
+                </label>
+                </div>
+
+
+                <div class="m-3">
+                <label class="d-block my-3">
+                  <input
+                type="password"
+                class="my-2"
+                id="confirmpassword"
+                placeholder="Password"
+                formControlName="password"
+              />
+
+              <small
+                [hidden]="
+                  registerForm.controls['password'].valid || registerForm.controls['password'].untouched
+                "
+                class="text-danger"
+                translate
+              >
+                Password is required
+              </small>
+                </label>
+                </div>
+                <div class="m-3">
+                  <button class="btn btn-primary w-100 submit" type="submit" [disabled]="registerForm.invalid || isLoading">
+                    <i class="fas fa-cog fa-spin" [hidden]="!isLoading"></i>
+                    <span translate>Submit</span>
+                  </button>
+                </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

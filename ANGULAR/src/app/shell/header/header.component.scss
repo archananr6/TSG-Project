@@ -1,9 +1,23 @@
-@import "src/theme/theme-variables";
+// @import "src/theme/theme-variables";
 
-.navbar {
-  margin-bottom: $spacer;
+// .navbar {
+//   margin-bottom: $spacer;
+// }
+
+// .nav-link.dropdown-toggle {
+//   cursor: pointer;
+// }
+.header{
+  background-color: bisque;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-family:cursive;
+  
 }
-
-.nav-link.dropdown-toggle {
-  cursor: pointer;
+a{
+  text-decoration: none;
+  color: black;
+  font-family: cursive;
 }

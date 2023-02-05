@@ -10,7 +10,7 @@ import { AuthenticationService, CredentialsService } from '@app/auth';
 })
 export class HeaderComponent implements OnInit {
   menuHidden = true;
-
+  isLoggedIn!:any;
   constructor(
     private router: Router,
     private authenticationService: AuthenticationService,

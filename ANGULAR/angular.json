@@ -124,6 +124,6 @@
   },
   "defaultProject": "ng-x-rocket",
   "cli": {
-    "analytics": "d14e5c60-74ba-40df-8fd0-ceccb0b7ba53"
+    "analytics": false
   }
 }
