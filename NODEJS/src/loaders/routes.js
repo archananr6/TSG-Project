@@ -1,8 +1,8 @@
 // Routes
 const { API_PREFIX } = require('config');
 const { AuthRoutes } = require('../components/Auth/auth.module');
-const { ProductRoutes } = require('../components/Product/product.module');
-
+const { ProductRoutes } = require('../components/product/product.module');
+const { CartRoutes } = require('../components/Cart/cart.module');
 const routes = [
   {
     path: '/auth',
@@ -11,7 +11,12 @@ const routes = [
   {
     path: '/product',
     route: ProductRoutes
-  }
+  },
+  {
+    path: '/cart',
+    route: CartRoutes
+  },
+ 
 
 ];
 

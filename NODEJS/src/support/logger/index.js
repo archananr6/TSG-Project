@@ -42,7 +42,6 @@ if (NODE_ENV === 'production') {
 }
 
 module.exports = logger;
-
 module.exports.requestLogger = expressWinston.logger({
   transports: [new winston.transports.Console()],
   format: winston.format.combine(winston.format.json(), winston.format.prettyPrint()),

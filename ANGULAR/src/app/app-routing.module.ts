@@ -5,7 +5,7 @@ import { ProductlistComponent } from './productlist/productlist.component';
 
 const routes: Routes = [
   // Fallback when no prior route is matched
-  { path: '**', redirectTo: '/home', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
 
   
   

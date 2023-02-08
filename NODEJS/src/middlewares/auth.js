@@ -1,3 +1,4 @@
+
 const { verifyJWT } = require('../components/Auth/jwt.service');
 const { UnauthorizedError } = require('../utils/api-errors');
 
@@ -12,9 +13,13 @@ const decodeToken = async (header) => {
 
 module.exports = async (req, res, next) => {
   const { method, path } = req;
-  if (method === 'OPTIONS' || ['/api/v1/auth/login'].includes(path)) {
+  if (method === 'OPTIONS' || ['/auth/login'].includes(path)) {
     return next();
   }
-  req.context = await decodeToken(req.header('Authorization') || req.header('authorization'));
+  const context = await decodeToken(req.header('Authorization') || req.header('authorization'));
+  req.body.userId=context.userId;
+  req.body.role=context.role;
   return next();
 };
+
+

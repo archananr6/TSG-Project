@@ -10,6 +10,7 @@
  */
  module.exports = ({ router, ProductController, ProductValidator, makeValidatorCallback, makeExpressCallback }) => {
     router.get('/listproducts', makeExpressCallback(ProductController.listproduct));
+    router.post('/addproducts', makeExpressCallback(ProductController.addproduct));
 
   
     return router;

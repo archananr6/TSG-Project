@@ -18,6 +18,10 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthRoutingModule } from './auth/auth-routing.module';
 import { ProductlistModule } from './productlist/productlist.module';
+import { CartModule } from './cart/cart.module';
+import { AdminproductRoutingModule } from './adminproduct/adminproduct-routing.module';
+import { AdminproductModule } from './adminproduct/adminproduct.module';
+
 
 @NgModule({
   imports: [
@@ -31,6 +35,8 @@ import { ProductlistModule } from './productlist/productlist.module';
     SharedModule,
     ShellModule,
     AboutModule,
+    CartModule,
+    AdminproductModule,
     ProductlistModule,
     AuthRoutingModule,
     HomeModule,

@@ -1,54 +1,4 @@
-<!-- <div class="container-fluid">
-  <div class="jumbotron text-center">
-    <h1>
-      <img class="logo" src="assets/ngx-rocket-logo.png" alt="angular logo" />
-      <span translate>Hello world !</span>
-    </h1>
-    <app-loader [isLoading]="isLoading"></app-loader>
-    <q [hidden]="isLoading">{{ quote }}</q>
-  </div>
-</div> -->
 
-<!-- 
-
-<div class="container-fluid header">
-  <div class="container">
-    <div class="row">
-      <div class="col-2 title">Ecommerce</div>
-      <div class="col-6 offset-md-1">
-        <div class="row">
-          <div class="col">
-            <span><a href="">Home</a></span>
-          </div>
-          <div class="col">
-            <span><a href="#fashion">Fashion</a></span>
-          </div>
-          <div class="col">
-            <span><a href="#electronics">Electronics</a></span>
-          </div>
-          <div class="col">
-            <span><a href="">Contacts</a></span>
-          </div>
-        </div>
-      </div>
-      <div class="col-2 offset-md-1">
-        <div class="row">
-          <div class="col">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </div>
-          <div class="col"><i class="fa-regular fa-heart"></i></div>
-          <div class="col">
-            <a href="login"><i class="fa-regular fa-user"*ngIf="!isLoggedIn"></i></a>
-            <i class="fa-solid fa-right-from-bracket" *ngIf="isLoggedIn" (click)="logOut()"></i>
-          </div>
-          <div class="col">
-            <a href="cart"><i class="fa-solid fa-cart-shopping"></i></a>
-            </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
 <app-loader [isLoading]="isLoading"></app-loader>
 
 <div class="container">
@@ -79,30 +29,4 @@
       </div>
     </div>
   </div>
-  <div class="container" id="fashion">
-      <p class="fashion">Fashion</p>
-    <div class="row" >
-        <div class="col-3 mt-2" *ngFor="let fashion of fashions">
-          <div class="card">
-              <img class="card-img-top" [src]="fashion.image" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">{{fashion.description}}</h5>
-                <p class="card-text">{{fashion.price}}</p>
-                <!-- <a href="#" class="btn btn-primary" (click)="cartFashion(fashion.id)">Add Cart</a> -->
-              </div>
-            </div>  
-        </div>   
-    </div>
-  </div>
-  <div class="container" id="electronics">
-    <p>Electronics</p>
-  <div class="row" >
-      <div class="col-3 mt-2" *ngFor="let electronic of electronics">
-        <div class="card">
-            <img class="card-img-top" [src]="electronic.image" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">{{electronic.description}}</h5>
-              <p class="card-text">{{electronic.price}}</p>
-              <!-- <a href="#" class="btn btn-primary" (click)="cartElectronic(electronic.id)" >Add Cart</a> -->
-            </div>
-          </div>  
+  

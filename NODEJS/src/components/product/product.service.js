@@ -12,18 +12,30 @@ const ProductService = {
    * @throws {NotFoundError} When the user is not found.
    */
 
+  //getProductList  Api
   getProductList: async (requestBody) => {
-    var queryObj = `select * from product`;
-    const resultObj = await db.promise(queryObj);
-    console.log("resultObj", JSON.stringify(resultObj))
-    return resultObj;
-    // payload = {
-    //     userId: resultObj[0].userId,
-    //     role: 'user',
-    //     email: resultObj[0].email
-    // };
+    try {
+      var queryObj = `select * from product`;
+      const resultObj = await db.promise(queryObj);
+      return resultObj;
+    } catch (error) {
+      logger.error('getProductList()' + error);
+    }
+  },
+
+
+  //AddProduct Api
+  addProductList :async (requestBody) => {
+    const sqlQuery = `INSERT INTO product(product_name,product_price,product_image,categoryId,inventory_id1)`
+    
+
+
   }
+  
+
 };
 
 
+
+ 
 module.exports = ProductService;

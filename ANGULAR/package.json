@@ -7,7 +7,7 @@
     "build": "npm run write:env -s && ng build",
     "start": "npm run write:env -s && ng serve --proxy-config proxy.conf.js",
     "serve:sw": "npm run build -s && npx http-server ./dist -p 4200",
-    "lint": "ng lint && stylelint \"src/**/*.scss\"",
+    "lint": "ng lint",
     "test": "npm run write:env -s && ng test",
     "test:ci": "npm run write:env -s && npm run lint -s && ng run ng-x-rocket:test:ci",
     "translations:extract": "ngx-translate-extract --input ./src --output ./src/translations/template.json --format=json --clean --sort",
@@ -15,7 +15,7 @@
     "write:env": "ngx-scripts env npm_package_version",
     "prettier": "prettier --write \"./src/**/*.{ts,js,html,scss}\"",
     "prettier:check": "prettier --list-different \"./src/**/*.{ts,js,html,scss}\"",
-    "generate": "ng generate module productlist"
+    "generate": "ng generate c adminproduct"
   },
   "dependencies": {
     "@angular/animations": "~14.1.3",
@@ -35,7 +35,8 @@
     "bootstrap": "^5.0.2",
     "rxjs": "^7.5.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.11.4"
+    "zone.js": "~0.11.4",
+    "ngx-bootstrap-navbar": "14.0.0"
   },
   "devDependencies": {
     "@angular-builders/jest": "^14.0.1",

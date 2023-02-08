@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { map, Observable, of } from 'rxjs';
 
 
-export interface ProductListContext {
+export interface CartContext {
 
 }
 
@@ -14,28 +14,24 @@ export interface ProductListContext {
 @Injectable({
   providedIn: 'root',
 })
-export class ProductListService {
+export class CartService {
   constructor(private http: HttpClient) {}
 
   /**
    * Authenticates the user.
    * @param context The login parameters.
    * @return The user credentials.
+   * 
+   * 
+   * 
    */
-
-  getProductList(): Observable<any> {
-    return this.http.get('/product/listproducts', { observe: 'response' }).pipe(
+  //viewcart
+   viewCartItems(): Observable<any> {
+    return this.http.get('/cart/viewcart', { observe: 'response' }).pipe(
       map((res: HttpResponse<any>) => {
         return res.body;
       })
     );
   }
-
-  addtoCart(requestObj: any): Observable<any> {
-    return this.http.post('/cart/addcart', requestObj, { observe: 'response' }).pipe(
-      map((res: HttpResponse<any>) => {
-        return res.body;
-      })
-    );
-  }
+   
 }

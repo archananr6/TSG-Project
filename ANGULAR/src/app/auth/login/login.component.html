@@ -1,18 +1,10 @@
 <div class="login-container bg-light vh-100">
   <div class="login-box">
-    <!-- <h1 translate>APP_NAME</h1> -->
-    <!-- <div> -->
-    <!-- <h6 class="d-inline-block">v{{ version }}</h6> -->
-    <!-- <div class="d-inline-block ml-3">
-        <app-language-selector></app-language-selector>
-      </div> -->
-    <!-- </div> -->
     <div class="container">
-      <!-- <div class="card col-md-6 mt-3 mx-auto"> -->
-      <!-- <div class="card-body"> -->
+    
       <div class="row my-5 text-center">
         <h1>LogIn</h1>
-        <!-- </div> -->
+
         <form (ngSubmit)="login()" [formGroup]="loginForm" novalidate>
           <div class="alert alert-danger" [hidden]="!errorObj" translate>
             E-mail or password incorrect.
@@ -66,7 +58,6 @@
           </div>
         </form>
       </div>
-      <!-- </div> -->
     </div>
   </div>
 </div>

@@ -1,9 +1,6 @@
 const mysql = require("mysql");
 const { BadRequestError, NotFoundError } = require('../utils/api-errors');
 
-
-
-
 const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
@@ -20,7 +17,7 @@ db.promise = (sql, fileds) => {
     //
     return new Promise((resolve, reject) => {
       db.query(sql, fileds, (err, result) => {
-        console.log('sql, fileds 2' + sql, fileds);
+        // console.log('sql, fileds 2' + sql, fileds);
         if (err) {
           reject(new Error());
         } else {

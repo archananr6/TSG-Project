@@ -8,6 +8,8 @@ const AuthController = {
    * @param {ExpressRequest} httpRequest
    * @returns {Promise.<ControllerResponse> }
    */
+
+  
   login: async (httpRequest) => {
     const loginData = await AuthService.doLogin(httpRequest.body);
     return {
@@ -16,8 +18,7 @@ const AuthController = {
         data: loginData
       }
     };
-  }
-,
+  },
 
 
 register: async (httpRequest) => {

@@ -41,13 +41,21 @@ export class LoginComponent implements OnInit {
   login(){
   try {
     if 
-    (this.loginForm.valid) { this.isLoading = true;
-    console.log('this.loginForm.valid', this.loginForm.value);
+    (this.loginForm.valid) { 
+      this.isLoading = true;
     this.authenticationService.login(this.loginForm.value).subscribe(
       (response) => { this.isLoading = false;
       console.log('response', response);
       this._credentialService.setCredentials(response)
       this._router.navigate(['/home']);
+      // check role then route
+      // if(response.data.role === 1){
+      //   this._router.navigate(['/home']);
+      // }
+      // else if (response.data.role === 2){
+      //   this._router.navigate(['/productlist']);
+      // }
+      
     },
     (error) => {
       this.isLoading = false;

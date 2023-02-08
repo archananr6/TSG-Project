@@ -9,7 +9,6 @@
  * @returns {ExpressRouter}
  */
 module.exports = ({ router, AuthController, AuthValidator, makeValidatorCallback, makeExpressCallback }) => {
-  console.log("/login/login/login")
   router.post('/login', makeValidatorCallback(AuthValidator.validateLogin), makeExpressCallback(AuthController.login));
   router.post('/register', makeValidatorCallback(AuthValidator.validateRegistration), makeExpressCallback(AuthController.register));
 

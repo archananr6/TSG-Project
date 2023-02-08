@@ -7,7 +7,10 @@ import { environment } from '@env/environment';
 import { Logger, UntilDestroy, untilDestroyed } from '@shared';
 import { AuthenticationService } from '../authentication.service';
 import { CredentialsService } from '@app/auth';
-const log = new Logger('Login');
+
+
+
+const log = new Logger('RegisterUser');
 
 @Component({
   selector: 'app-registration',
@@ -30,25 +33,31 @@ export class RegistrationComponent {
   ) {
     this.createForm();
   }
+
+
   registerUser(){
     if(this.registerForm.valid ){
-      alert("Please enter a valid registration");
       this.isLoading = true;
-      this.authenticationService.register(this.registerForm.value).subscribe(
-        (response) => { 
-          this.isLoading = false;
-        this._router.navigate(['/login']);
-      },
-      (error) => {
+      try {
+        this.authenticationService.register(this.registerForm.value).subscribe(
+          (response) => { 
+            log.info("register successfully",response)
+            this.isLoading = false;
+            this._router.navigate(['/login']);
+          },
+          (error) => {
+            this.isLoading = false;
+            this.errorObj = true;
+            this.errorText = error?.error?.message;
+            log.error('registerUser() funtion ', error);
+          } );
+      } catch (error) {
         this.isLoading = false;
-        this.errorObj = true
-        this.errorText = error?.error?.message;
-        log.error('login() funtion ', error);
-      } );
-    }else{
-
+        log.error('error occured', error);
+      }
     }
   }
+
 
   private createForm() {
     this.registerForm = this._formBuilder.group({

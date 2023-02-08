@@ -7,6 +7,7 @@ export interface Credentials {
 }
 
 const credentialsKey = '_app_cache';
+// const credentialsKeys = 'id';
 
 /**
  * Provides storage for authentication credentials.
@@ -58,8 +59,9 @@ export class CredentialsService {
   setCredentials(credentialObj:any) {
     if (credentialObj) {
       // const storage = remember ? localStorage : sessionStorage;
-      this._credentials = credentialObj.data.accessToken;
+      this._credentials = credentialObj;
     sessionStorage.setItem(credentialsKey,credentialObj.data.accessToken);
+    console.log(credentialObj.data.accessToken)
     } else {
       this._credentials = null;
       sessionStorage.removeItem(credentialsKey);
